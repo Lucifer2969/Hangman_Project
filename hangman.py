@@ -9,11 +9,11 @@ word_length = len(word)
 for position in range(word_length):
     placeholder += '_'
 print(placeholder)
-
-guess = input("Guess a letter: ").lower()
-for letter in word:
-    if letter == guess:
-        display += letter
-    else:
-        display += '_'
-print(display)
+while True:
+    guess = input("Guess a letter: ").lower()
+    for letter in word:
+        if letter == guess:
+            display += letter
+        else:
+            display += '_'
+    print(display)
