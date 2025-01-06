@@ -10,7 +10,7 @@ game_over = False
 
 # Using ASCII art to print logo.
 print(logo)
-print(word)
+# print(word)
 word_length = len(word)
 correct_word = []
 
