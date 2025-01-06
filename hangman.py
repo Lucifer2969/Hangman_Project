@@ -68,23 +68,21 @@ print(placeholder)
 while not game_over:
     guess = input("Guess a letter: ").lower()
     display = ""
-    if guess in word:
-        for letter in word:
-            if letter == guess:
-                display += letter
-                correct_word.append(letter)
-            elif letter in correct_word:
-                display += letter
-            else:
-                display += '_'
-    else:
-        display += '_'
-        lives -= 1
+    for letter in word:
+        if letter == guess:
+            display += letter
+            correct_word.append(letter)
+        elif letter in correct_word:
+            display += letter
+        else:
+            display += '_'
     print(display)
-    print(stages[lives])
-    if lives == 0:
-        print("You loose")
-        break
+    if guess not in word:
+        lives -= 1
+        if lives == 0:
+            print("You loose")
+            game_over = True
     if '_' not in display:
         game_over = True
         print("You win!")
+    print(stages[lives])
