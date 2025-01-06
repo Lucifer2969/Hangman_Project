@@ -19,10 +19,19 @@ for position in range(word_length):
     placeholder += '_'
 print(placeholder)
 
+
 # While loop to check the termination condition and for loop to check correct letter in the word.
 while not game_over:
     guess = input("Guess the correct letter: ").lower()
     display = ""
+    # Conditional statement to check lives left for the user.
+    if guess not in word:
+        print("You have guessed wrong letter. Lives will be reduced")
+        lives -= 1
+        if lives == 0:
+            print(f"You loose. Correct word is {word}")
+            game_over = True
+            
     print("*****Lives left is:-",lives,"*****")
     if guess in correct_word:
         print("You have already guessed",guess,"letter.")
@@ -36,13 +45,6 @@ while not game_over:
             display += '_'
     print(display)
 
-# Conditional statement to check lives left for the user.
-    if guess not in word:
-        print("You have guessed wrong letter. Lives will be reduced")
-        lives -= 1
-        if lives == 0:
-            print(f"You loose. Correct word is {word}")
-            game_over = True
 
 # Conditional statement to check if user has won the game.
     if '_' not in display:
